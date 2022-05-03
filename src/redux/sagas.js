@@ -11,7 +11,6 @@ import {
   editContactSuccess,
   editContactFail,
 } from "./action";
-
 export function* onLoadContactAsync() {
   try {
     const contacts = yield new Promise((resolve) =>

@@ -5,7 +5,6 @@ const initialState = {
   error: null,
   loading: false,
 };
-
 const contactReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.GET_CONTACTS_START:
@@ -16,7 +15,6 @@ const contactReducer = (state = initialState, action) => {
         ...state,
         loading: true,
       };
-
     case types.GET_CONTACTS_SUCCESS:
       return {
         ...state,
