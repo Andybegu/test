@@ -3,19 +3,16 @@ import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { editContactStart } from "../redux/action";
 import {
-  Button,
   ButtonType,
-  Container,
   ContainerForm,
-  Erorr,
   FormInput,
   H1,
   Input,
   Label,
   Option,
   Select,
+  ParantButton
 } from "../style/add";
-import { ParantButton } from "../style/home";
 import { toast } from "react-toastify";
 
 const Edit = () => {

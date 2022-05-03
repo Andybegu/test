@@ -5,7 +5,6 @@ import { getContactsStart, deleteContactStart } from "../redux/action";
 import {
   P,
   CardWrapper,
-  ParantButton,
   Button,
   Card
 } from "../style/home";
@@ -25,27 +24,29 @@ const Home = () => {
   return (
     <>
       <P>User Data</P>
+      <CardWrapper >
             {Object.keys(data).map((id, index) => {
+                
               return (
-                <CardWrapper key={id}>
-                <Card>
+              
+                <Card key={id}>
                 <p>Name: {data[id].firstName}</p>
                 <p>Salary: {data[id].lastName}</p>
                 <p>AGE: {data[id].Age}</p>
                 <p>Height:{data[id].Height}</p>
                 <p>Gender: {data[id].Gender}</p>
-                <ParantButton>
                 <Link to={`/update/${id}`}>
                      <Button>Edit</Button>
                     </Link>
                      <Button primary onClick={() => onDelete(id)}>
                        DELETE
                      </Button>
-                     </ParantButton>
                      </Card>
-                </CardWrapper>
+                
               );
+              
             })}
+            </CardWrapper>
     </>
   );
 };

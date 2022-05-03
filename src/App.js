@@ -9,12 +9,13 @@ import { ToastContainer} from "react-toastify"
 function App() {
   return (
     <>
+    <ToastContainer/>
       <GlobalStyle/>
       <Header />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/add" component={Add} />
-          <Route exact path="/update/:id" component={Edit} />
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/add" component={Add}/>
+          <Route exact path="/update/:id" component={Edit}/>
         </Switch>
     </>
   );

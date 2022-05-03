@@ -116,8 +116,9 @@ const Add = () => {
           />
           </ContainerForm>
           <ContainerForm>
-            <Label>Gender</Label>
+            <Label>Select Gender</Label>
           <Select name="Gender" value={Gender} onChange={handleInputChange}>
+            <Option value="" selected disabled hidden>select</Option>
             <Option value="male">Male</Option>
             <Option value="female">Female</Option>
           </Select>
