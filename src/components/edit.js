@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { editContactStart } from "../redux/action";
+import { editUserStart } from "../redux/action";
 import {
   Input,
   Label,
@@ -21,7 +21,7 @@ const Edit = () => {
     Gender: ["male", "female"],
   };
   const [initialState, setState] = useState(values);
-  const { contacts: data } = useSelector((state) => state.data);
+  const { users: data } = useSelector((state) => state.data);
   const dispatch = useDispatch();
   const { firstName, lastName, Age,Height, Gender } = initialState;
   const currentId = useParams();
@@ -53,7 +53,7 @@ const Edit = () => {
     }
     
     else {
-    dispatch(editContactStart({ initialState, id }));
+    dispatch(editUserStart({ initialState, id }));
     history.push("/");}
   };
   return (

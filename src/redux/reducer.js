@@ -1,37 +1,37 @@
 import * as types from "./actionType";
 
 const initialState = {
-  contacts: {},
+  users: {},
   error: null,
   loading: false,
 };
-const contactReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.GET_CONTACTS_START:
-    case types.DELETE_CONTACT_START:
-    case types.ADD_CONTACT_START:
-    case types.EDIT_CONTACT_START:
+    case types.GET_USER_START:
+    case types.DELETE_USER_START:
+    case types.ADD_USER_START:
+    case types.EDIT_USER_START:
       return {
         ...state,
         loading: true,
       };
-    case types.GET_CONTACTS_SUCCESS:
+    case types.GET_USER_SUCCESS:
       return {
         ...state,
-        contacts: action.payload,
+       users: action.payload,
         loading: false,
       };
-    case types.DELETE_CONTACT_SUCCESS:
-    case types.ADD_CONTACT_SUCCESS:
-    case types.EDIT_CONTACT_SUCCESS:
+    case types.DELETE_USER_SUCCESS:
+    case types.ADD_USER_SUCCESS:
+    case types.EDIT_USER_SUCCESS:
       return {
         ...state,
         loading: false,
       };
-    case types.GET_CONTACTS_FAIL:
-    case types.DELETE_CONTACT_FAIL:
-    case types.ADD_CONTACT_FAIL:
-    case types.EDIT_CONTACT_FAIL:
+    case types.GET_USER_FAIL:
+    case types.DELETE_USER_FAIL:
+    case types.ADD_USER_FAIL:
+    case types.EDIT_USER_FAIL:
       return {
         ...state,
         error: action.payload,
@@ -42,4 +42,4 @@ const contactReducer = (state = initialState, action) => {
   }
 };
 
-export default contactReducer;
+export default userReducer;

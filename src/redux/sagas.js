@@ -2,82 +2,61 @@ import { takeLatest, all, put, fork } from "redux-saga/effects";
 import * as types from "./actionType";
 import firebaseDb from "../firebase";
 import {
-  getContactsSuccess,
-  getContactsFail,
-  deleteContactSuccess,
-  deleteContactFail,
-  addContactSuccess,
-  addContactFail,
-  editContactSuccess,
-  editContactFail,
+  getUserSuccess,
+  getUserFail,
+  deleteUserSuccess,
+  deleteUserFail,
+  addUserSuccess,
+  addUserFail,
+  editUserSuccess,
+  editUserFail,
 } from "./action";
-export function* onLoadContactAsync() {
+export function* onLoadUserAsync() {
   try {
-    const contacts = yield new Promise((resolve) =>
+    const users = yield new Promise((resolve) =>
       firebaseDb.child("contacts").on("value", resolve)
     );
-    if (contacts.val() !== null) {
-      yield put(getContactsSuccess(contacts.val()));
+    if (users.val() !== null) {
+      yield put(getUserSuccess(users.val()));
     } else {
-      yield put(getContactsSuccess({}));
+      yield put(getUserSuccess({}));
     }
   } catch (error) {
-    yield put(getContactsFail());
+    yield put(getUserFail());
   }
 }
 
-export function* onDeleteContactAsync({ payload: id }) {
+export function* onDeleteUserAsync({ payload: id }) {
   try {
     yield firebaseDb.child(`contacts/${id}`).remove();
-    yield put(deleteContactSuccess());
+    yield put(deleteUserSuccess());
   } catch (error) {
-    yield put(deleteContactFail());
+    yield put(deleteUserFail());
   }
 }
 
-export function* onAddContactAsync({ payload: contact }) {
+export function* onAddUserAsync({ payload: user }) {
   try {
-    yield firebaseDb.child("contacts").push(contact);
-    yield put(addContactSuccess());
+    yield firebaseDb.child("contacts").push(user);
+    yield put(addUserSuccess());
   } catch (error) {
-    yield put(addContactFail());
+    yield put(addUserFail());
   }
 }
 
-export function* onEditContactAsync({
-  payload: { id, initialState: contact },
+export function* onEditUserAsync({
+  payload: { id, initialState: user },
 }) {
   try {
-    yield firebaseDb.child(`contacts/${id}`).set(contact);
-    yield put(editContactSuccess());
+    yield firebaseDb.child(`contacts/${id}`).set(user);
+    yield put(editUserSuccess());
   } catch (error) {
-    yield put(editContactFail());
+    yield put(editUserFail());
   }
 }
-
-export function* onLoadContacts() {
-  yield takeLatest(types.GET_CONTACTS_START, onLoadContactAsync);
-}
-
-export function* onDeleteContact() {
-  yield takeLatest(types.DELETE_CONTACT_START, onDeleteContactAsync);
-}
-
-export function* onAddContact() {
-  yield takeLatest(types.ADD_CONTACT_START, onAddContactAsync);
-}
-
-export function* onEditContact() {
-  yield takeLatest(types.EDIT_CONTACT_START, onEditContactAsync);
-}
-
-const contactSagas = [
-  fork(onLoadContacts),
-  fork(onDeleteContact),
-  fork(onAddContact),
-  fork(onEditContact),
-];
-
 export default function* rootSaga() {
-  yield all([...contactSagas]);
+  yield takeLatest(types.DELETE_USER_START, onDeleteUserAsync);
+  yield takeLatest(types.ADD_USER_START, onAddUserAsync);
+  yield takeLatest(types.EDIT_USER_START, onEditUserAsync);
+  yield takeLatest(types.GET_USER_START, onLoadUserAsync);
 }

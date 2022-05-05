@@ -3,7 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import {toast,Slide} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector, useDispatch } from "react-redux";
-import { addContactStart } from "../redux/action";
+import { addUserStart } from "../redux/action";
 import {css} from "@emotion/react";
 import {
   Button,
@@ -28,7 +28,7 @@ const Add = () => {
   };
   const [initialState, setState] = useState(values);
   //const [error, setError] = useState([]);
-  const { contacts: data } = useSelector((state) => state.data);
+  const { users: data } = useSelector((state) => state.data);
   const dispatch = useDispatch();
   const { firstName, lastName, Age,Height, Gender } = initialState;
   const currentId = useParams();
@@ -64,7 +64,7 @@ const Add = () => {
       return toast.error(`NO USER HAVING ${Height} HEIGHT`)
     }
     else if (!(id)) {
-      dispatch(addContactStart(initialState));
+      dispatch(addUserStart(initialState));
       history.push("/");
     }
    

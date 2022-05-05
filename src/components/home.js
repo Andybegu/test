@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
 import {Link} from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
-import { getContactsStart, deleteContactStart } from "../redux/action";
+import { getUserStart, deleteUserStart } from "../redux/action";
 import { Box,Button,Heading ,Text} from "rebass";
 import {css} from "@emotion/react"
 
 const Home = () => {
-  const { contacts: data } = useSelector((state) => state.data);
+  const { users: data } = useSelector((state) => state.data);
   let dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getContactsStart());
+    dispatch(getUserStart());
   }, [dispatch]);
   const onDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this record ?")) {
-      dispatch(deleteContactStart(id));
-      dispatch(getContactsStart());
+      dispatch(deleteUserStart(id));
+      dispatch(getUserStart());
     }
   };
 
@@ -57,7 +57,7 @@ const Home = () => {
                 <Text p={2}>Height:{data[id].Height}</Text>
                 <Text p={2}>Gender: {data[id].Gender}</Text>
                 
-                <Link  href={`/update/${id}`}>
+                <Link  to={`/update/${id}`}>
                      <Button 
                      sx={{
                       textTransform:'uppercase'

@@ -1,54 +1,54 @@
 import * as types from "./actionType";
 
-export const getContactsStart = () => ({
-  type: types.GET_CONTACTS_START,
+export const getUserStart = () => ({
+  type: types.GET_USER_START,
 });
-export const getContactsSuccess = (contacts) => ({
-  type: types.GET_CONTACTS_SUCCESS,
-  payload: contacts,
+export const getUserSuccess = (users) => ({
+  type: types.GET_USER_SUCCESS,
+  payload: users,
 });
-export const getContactsFail = (error) => ({
-  type: types.GET_CONTACTS_FAIL,
+export const getUserFail = (error) => ({
+  type: types.GET_USER_FAIL,
   payload: error,
 });
-export const deleteContactStart = (id) => ({
-  type: types.DELETE_CONTACT_START,
+export const deleteUserStart = (id) => ({
+  type: types.DELETE_USER_START,
   payload: id,
 });
 
-export const deleteContactSuccess = () => ({
-  type: types.DELETE_CONTACT_SUCCESS,
+export const deleteUserSuccess = () => ({
+  type: types.DELETE_USER_SUCCESS,
 });
 
-export const deleteContactFail = (error) => ({
-  type: types.DELETE_CONTACT_FAIL,
+export const deleteUserFail = (error) => ({
+  type: types.DELETE_USER_FAIL,
   payload: error,
 });
 
-export const addContactStart = (contact) => ({
-  type: types.ADD_CONTACT_START,
-  payload: contact,
+export const addUserStart = (user) => ({
+  type: types.ADD_USER_START,
+  payload: user,
 });
 
-export const addContactSuccess = () => ({
-  type: types.ADD_CONTACT_SUCCESS,
+export const addUserSuccess = () => ({
+  type: types.ADD_USER_SUCCESS,
 });
 
-export const addContactFail = (error) => ({
-  type: types.ADD_CONTACT_FAIL,
+export const addUserFail = (error) => ({
+  type: types.ADD_USER_FAIL,
   payload: error,
 });
 
-export const editContactStart = (contactDetail) => ({
-  type: types.EDIT_CONTACT_START,
-  payload: contactDetail,
+export const editUserStart = (userDetail) => ({
+  type: types.EDIT_USER_START,
+  payload: userDetail,
 });
 
-export const editContactSuccess = () => ({
-  type: types.EDIT_CONTACT_SUCCESS,
+export const editUserSuccess = () => ({
+  type: types.EDIT_USER_SUCCESS,
 });
 
-export const editContactFail = (error) => ({
-  type: types.EDIT_CONTACT_FAIL,
+export const editUserFail = (error) => ({
+  type: types.EDIT_USER_FAIL,
   payload: error,
 });
