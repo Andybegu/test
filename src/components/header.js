@@ -1,17 +1,40 @@
+import { css } from "@emotion/react";
 import React from "react";
-import { Link } from "react-router-dom";
-import { NavUnlisted, linkStyle } from "../style/navbar";
+import { Box,Link } from "rebass";
 
 const Header = () => {
   return (
-    <NavUnlisted>
-      <Link to="/" style={linkStyle}>
+    <Box 
+    textDecoration="none"
+	bg="black"
+	fontSize="20px"
+	display="flex"
+	justifyContent="space-between"
+	alignItems="center"
+	padding="10px 60px">
+      <Link href="/" 
+      css={css`
+      text-decoration:none
+      `}
+        color="white"
+        justifyContent="space-between"
+       
+        
+      >
         HOME
       </Link>
-      <Link to="/add" style={linkStyle}>
+      <Link href="/add" 
+      css={css`
+      text-decoration:none
+      `}
+        mr="100px"
+        color="white"
+        justifyContent="space-between"
+        textDecoration="none"
+      >
         ADD
       </Link>
-    </NavUnlisted>
+    </Box>
   );
 };
 
