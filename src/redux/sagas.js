@@ -1,63 +1,51 @@
 import { takeLatest, put} from "redux-saga/effects";
-import * as types from "./actionType";
+import * as types from "./constant";
 import firebaseDb from "../firebase";
 import {
   getUserSuccess,
   getUserFail,
   deleteUserSuccess,
-  deleteUserFail,
   addUserSuccess,
-  addUserFail,
   editUserSuccess,
-  editUserFail,
 } from "./action";
 
-export function* onLoadUserAsync() {
-  try {
-    const users = yield new Promise((resolve) =>
-      firebaseDb.child("contacts").on("value", resolve)
-    );
+
+
+export function* getUser() {
+    try{
+      const users = yield new Promise((resolve) =>
+      firebaseDb.child("contacts").on("value", resolve))
     if (users.val() !== null) {
       yield put(getUserSuccess(users.val()));
     } else {
       yield put(getUserSuccess({}));
     }
-  } catch (error) {
-    yield put(getUserFail());
-  }
+
+    }catch(error)
+    {
+      yield put(getUserFail())
+    }
 }
 
-export function* onDeleteUserAsync({ payload: id }) {
-  try {
+export function* deleteUser({ payload: id }) {
     yield firebaseDb.child(`contacts/${id}`).remove();
     yield put(deleteUserSuccess());
-  } catch (error) {
-    yield put(deleteUserFail());
-  }
 }
 
-export function* onAddUserAsync({ payload: user }) {
-  try {
+export function* addUser({ payload: user }) {
     yield firebaseDb.child("contacts").push(user);
     yield put(addUserSuccess());
-  } catch (error) {
-    yield put(addUserFail());
-  }
 }
 
-export function* onEditUserAsync({
+export function* editUser({
   payload: { id, initialState: user },
 }) {
-  try {
     yield firebaseDb.child(`contacts/${id}`).set(user);
     yield put(editUserSuccess());
-  } catch (error) {
-    yield put(editUserFail());
-  }
 }
 export default function* rootSaga() {
-  yield takeLatest(types.DELETE_USER_START, onDeleteUserAsync);
-  yield takeLatest(types.ADD_USER_START, onAddUserAsync);
-  yield takeLatest(types.EDIT_USER_START, onEditUserAsync);
-  yield takeLatest(types.GET_USER_START, onLoadUserAsync);
+  yield takeLatest(types.GET_USER_START, getUser);
+  yield takeLatest(types.DELETE_USER_START, deleteUser);
+  yield takeLatest(types.ADD_USER_START, addUser);
+  yield takeLatest(types.EDIT_USER_START, editUser);
 }

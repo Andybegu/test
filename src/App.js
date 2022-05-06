@@ -5,6 +5,8 @@ import Add from "./components/add";
 import Header from "./components/header";
 import Edit from "./components/edit";
 
+
+//using styled-copmponent to create global style
 const GlobalStyle = createGlobalStyle`
 body{
 	margin:0px;

@@ -1,4 +1,4 @@
-import * as types from "./actionType";
+import * as types from "./constant";
 
 const initialState = {
   users: {},
@@ -29,9 +29,6 @@ const userReducer = (state = initialState, action) => {
         loading: false,
       };
     case types.GET_USER_FAIL:
-    case types.DELETE_USER_FAIL:
-    case types.ADD_USER_FAIL:
-    case types.EDIT_USER_FAIL:
       return {
         ...state,
         error: action.payload,
