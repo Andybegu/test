@@ -189,7 +189,7 @@ const Edit = () => {
           sx={{
             borderRadius:'50px'
           }}
-          width="100px" height="30px"
+          width="100px" height="32px"
           textAlign="center" 
           id="Gender"
           name="Gender" value={Gender} onChange={handleInputChange}>
