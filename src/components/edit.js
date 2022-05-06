@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { editUserStart } from "../redux/action";
+import { toast } from "react-toastify";
+import {css} from "@emotion/react"
+import { Box,Heading,Button } from "rebass";
 import {
   Input,
   Label,
   Select,
 } from "@rebass/forms";
-import { toast } from "react-toastify";
-import { Box,Heading,Button } from "rebass";
-import {css} from "@emotion/react"
 
 
 const Edit = () => {
@@ -82,7 +82,8 @@ const Edit = () => {
 		padding: 2px;
 	}
 `}
-  as="form" onSubmit={handleSubmit}>
+  as="form" onSubmit={handleSubmit}
+  >
         <Box 
   display="flex"
 	flexDirection="column"

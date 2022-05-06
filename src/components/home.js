@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 import {Link} from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
 import { getUserStart, deleteUserStart } from "../redux/action";
-import { Box,Button,Heading ,Text} from "rebass";
-import {css} from "@emotion/react"
+import { Box,Button,Heading ,Text,Card} from "rebass";
+import {css,keyframes} from "@emotion/react"
+
 
 const Home = () => {
   const { users: data } = useSelector((state) => state.data);
+  const loading = useSelector((state) => state.data.loading);
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUserStart());
@@ -17,9 +19,17 @@ const Home = () => {
       dispatch(getUserStart());
     }
   };
-
+  const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
   return (
     <>
+
       <Heading
        sx={{
         textTransform:'uppercase'
@@ -29,6 +39,22 @@ const Home = () => {
 	padding=" 20px 0px"
 	fontSize="40px"
       >User Data</Heading>
+
+       {loading && <Box css={css`
+       animation: ${rotate360} 1s linear infinite;
+       transform: translateZ(0);
+    
+       border-top: 2px solid grey;
+       border-right: 2px solid grey;
+       border-bottom: 2px solid grey;
+       border-left: 4px solid black;
+       background: transparent;
+       width: 204px;
+       height: 204px;
+       border-radius: 50%;
+       margin: 10% 45%;
+       `}></Box>}
+
       <Box 
       display= "flex"
       flexWrap="wrap"
@@ -40,7 +66,7 @@ const Home = () => {
                 
               return (
               
-                <Box 
+                <Card key={id}
                 w="50%" p="70px" m="20px 10px"
                css={css`
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0px 40px rgba(0, 0, 0, 0);
@@ -57,14 +83,13 @@ const Home = () => {
                 <Text p={2}>Height:{data[id].Height}</Text>
                 <Text p={2}>Gender: {data[id].Gender}</Text>
                 
-                <Link  to={`/update/${id}`}>
+                <Link to={`/update/${id}`}>
                      <Button 
                      sx={{
                       textTransform:'uppercase'
                     }}
                      css={css`
                      border-radius: 20px;
-                    text-transform=uppercase;
                     box-shadow=0 0 10px rgba(0, 0, 0, 0.3);
                      `}
                      color="black"
@@ -76,9 +101,7 @@ const Home = () => {
                      margin="10px"
                      border="none"
                      justifyContent=" space-between"
-                     textTransform="uppercase"
                      fontWeight="700"
-                    
                      >Edit</Button>
                     </Link>
                      <Button
@@ -87,7 +110,6 @@ const Home = () => {
                     }}
                     css={css`
                     border-radius: 20px;
-                   text-transform=uppercase;
                    box-shadow= 0 0 10px rgba(0, 0, 0, 0.3);
                     `}
                     color="black"
@@ -98,12 +120,11 @@ const Home = () => {
                     margin="5px"
                     border="none"
                     justifyContent=" space-between"
-                    textTransform="uppercase"
                     fontWeight="700"  onClick={() => onDelete(id)}>
                        DELETE
                      </Button>
                      
-                     </Box>
+                     </Card>
                 
               );
               

@@ -1,4 +1,4 @@
-import { takeLatest, all, put, fork } from "redux-saga/effects";
+import { takeLatest, put} from "redux-saga/effects";
 import * as types from "./actionType";
 import firebaseDb from "../firebase";
 import {
@@ -11,6 +11,7 @@ import {
   editUserSuccess,
   editUserFail,
 } from "./action";
+
 export function* onLoadUserAsync() {
   try {
     const users = yield new Promise((resolve) =>

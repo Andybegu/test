@@ -11,6 +11,9 @@ import {
   Heading
 } from "rebass"
 import {Input,Label,Select} from "@rebass/forms";
+
+
+
 const Add = () => {
   toast.configure({
     position: toast.POSITION.TOP_RIGHT,
@@ -27,14 +30,12 @@ const Add = () => {
     Gender: ["male", "female"],
   };
   const [initialState, setState] = useState(values);
-  //const [error, setError] = useState([]);
   const { users: data } = useSelector((state) => state.data);
   const dispatch = useDispatch();
   const { firstName, lastName, Age,Height, Gender } = initialState;
   const currentId = useParams();
   const history = useHistory();
   const { id } = currentId;
-  console.log("currentId", currentId);
   useEffect(() => {
     if (!(id)) {
       setState({ ...values });
@@ -74,20 +75,12 @@ const Add = () => {
   return (
   <>
       <Heading 
-      sx={{
-        textTransform:'uppercase'
-      }}
-        textAlign="center"
-	color="blueviolet"
-	padding=" 20px 0px"
-	fontSize="40px"
-	
+        textAlign="center" color="blueviolet" p=" 20px 0px" fontSize="40px"
+	sx={{ textTransform:'uppercase' }}
       >Add User</Heading>
         <Box 
   css={css`
   height: 500px;
-	margin: 30px 25%;
-	padding: 20px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0px 40px rgba(0, 0, 0, 0);
 	border-radius: 0px 100px 0px 100px;
 	width: 50%;
@@ -97,6 +90,8 @@ const Add = () => {
 		padding: 2px;
 	}
 `}
+margin= '30px 25%'
+padding= '20px'
   as="form" onSubmit={handleSubmit}>
         <Box 
   display="flex"
@@ -203,7 +198,7 @@ const Add = () => {
           sx={{
             borderRadius:'50px'
           }}
-          width="100px" height="30px"
+          width="100px" height="32px"
           textAlign="center" 
           id="Gender"
           name="Gender" value={Gender} onChange={handleInputChange}>
@@ -220,12 +215,12 @@ const Add = () => {
          css={css`
          border-radius: 20px;
          box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-         &:hover {
+         &:hover{
           background-color: black;
         }
        `}
-       fontSize="30px" margin="20px 20px 50px 60%" bg="blueviolet"
-       fontWeight="700" padding=" 1px 40px"
+        m="10px 20px  50px 60%" p="1px 40px" bg="blueviolet"
+       fontWeight="700" fontSize="30px"
        border="none"
           type="submit">Add</Button>
         </Box>

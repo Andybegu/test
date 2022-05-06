@@ -5,7 +5,6 @@ import { Box,Link } from "rebass";
 const Header = () => {
   return (
     <Box 
-    textDecoration="none"
 	bg="black"
 	fontSize="20px"
 	display="flex"
@@ -17,9 +16,7 @@ const Header = () => {
       text-decoration:none
       `}
         color="white"
-        justifyContent="space-between"
-       
-        
+        justifyContent="space-between" 
       >
         HOME
       </Link>
