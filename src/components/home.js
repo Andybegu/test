@@ -59,8 +59,7 @@ const Home = () => {
       display= "flex"
       flexWrap="wrap"
       height=" 50%"
-      margin="10px 5%"
-      padding="0px 20px"
+      m="10px 5%" p="0px 20px"
        >
             {Object.keys(data).map((id, index) => {
                 
@@ -68,6 +67,7 @@ const Home = () => {
               
                 <Card key={id}
                 w="50%" p="70px" m="20px 10px"
+                fontFamily="arial, sans-serif"
                css={css`
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0px 40px rgba(0, 0, 0, 0);
       border-radius: 0px 50px 0px 50px;
@@ -75,7 +75,7 @@ const Home = () => {
         width: 90%;
       }
     `}
-	fontFamily="arial, sans-serif"
+	
      >
                 <Text p={2} m={0} >Name: {data[id].firstName}</Text>
                 <Text p={2}>Salary: {data[id].lastName}</Text>
@@ -86,39 +86,33 @@ const Home = () => {
                 <Link to={`/update/${id}`}>
                      <Button 
                      sx={{
-                      textTransform:'uppercase'
+                      textTransform:'uppercase',
+                      cursor:'pointer'
                     }}
                      css={css`
                      border-radius: 20px;
                     box-shadow=0 0 10px rgba(0, 0, 0, 0.3);
                      `}
-                     color="black"
-                     bg="green"
+                     color="black" bg="green"
                      border-radius="40px"
                      fontSize="16px"
-                     cursor="pointer"
-                     padding=" 7px 15px"
-                     margin="10px"
-                     border="none"
+                     p=" 7px 15px" m="10px"
                      justifyContent=" space-between"
                      fontWeight="700"
                      >Edit</Button>
                     </Link>
                      <Button
                      sx={{
-                      textTransform:'uppercase'
+                      textTransform:'uppercase',
+                      cursor:'pointer'
                     }}
                     css={css`
                     border-radius: 20px;
                    box-shadow= 0 0 10px rgba(0, 0, 0, 0.3);
                     `}
-                    color="black"
-                    bg="red"
+                    color="black" bg="red"
                     fontSize="16px"
-                    cursor="pointer"
-                    padding=" 7px 10px"
-                    margin="5px"
-                    border="none"
+                    p=" 7px 10px" m="5px"
                     justifyContent=" space-between"
                     fontWeight="700"  onClick={() => onDelete(id)}>
                        DELETE

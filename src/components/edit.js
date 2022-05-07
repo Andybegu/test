@@ -64,7 +64,7 @@ const Edit = () => {
       }}
         textAlign="center"
 	color="blueviolet"
-	padding=" 20px 0px"
+	p=" 20px 0px"
 	fontSize="40px"
 	
       >update User</Heading>
@@ -92,16 +92,14 @@ const Edit = () => {
 	>
           <Label 
           color="black" 
-          margin="10px" htmlFor="firstName">firstName</Label>
+          m="10px" htmlFor="firstName">firstName</Label>
           <Input
            sx={{
             borderRadius:'50px'
           }}
           height="35px"
           color="black"
-          display="block"
-          borderRadius="50px"
-          pl="20px"
+          display="block"      
             type="text"
             name="firstName"
             value={firstName}
@@ -116,14 +114,14 @@ const Edit = () => {
   >
           <Label 
           color="black" 
-          margin="10px" htmlFor="lastName">lastName</Label>
+          m="10px" htmlFor="lastName">lastName</Label>
           <Input
            sx={{
             borderRadius:'50px'
           }}
           height="35px" color="black"
-          display="block" borderRadius="50px"
-          paddingLeft="20px"
+          display="block"
+          pL="20px"
             type="text"
             name="lastName"
             value={lastName}
@@ -135,16 +133,16 @@ const Edit = () => {
 	flexDirection="column"
 	width="50%"
 	justifyContent="center"
-	margin="10px 25%">
+	m="10px 25%">
           <Label 
           color="black" 
-          margin="10px" htmlFor="Age">Age</Label>
+          m="10px" htmlFor="Age">Age</Label>
           <Input
            sx={{
             borderRadius:'50px'
           }}
           height="35px" color="black"
-          display="block" borderRadius="50px"
+          display="block"
           pl="20px"
             type="number"
             name="Age"
@@ -157,7 +155,7 @@ const Edit = () => {
 	flexDirection="column"
 	width="50%"
 	justifyContent="center"
-	margin="10px 25%">
+	m="10px 25%">
           <Label 
           color="black" 
           margin="10px" htmlFor="Height">Height</Label>
@@ -166,8 +164,8 @@ const Edit = () => {
             borderRadius:'50px'
           }}
           height="35px" color="black"
-          display="block" borderRadius="50px"
-          paddingLeft="20px"
+          display="block"
+          pL="20px"
             type="number"
             name="Height"
             value={Height}
@@ -179,11 +177,11 @@ const Edit = () => {
           flexDirection="column"
           width="50%"
           justifyContent="center"
-          margin="0px 25%"
+          m="0px 25%"
           >
             <Label 
             color="black" 
-            margin="10px" 
+            m="10px" 
             htmlFor="Gender">Select Gender</Label>
           <Select
           sx={{
@@ -192,17 +190,19 @@ const Edit = () => {
           width="100px" height="32px"
           textAlign="center" 
           id="Gender"
-          name="Gender" value={Gender} onChange={handleInputChange}>
+          name="Gender" onChange={handleInputChange}>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </Select>
           </Box>
           <Box 
-  display="flex"
-	padding="10px"
-	margin="10px 20%"
+  display="flex" p="10px" m="10px 20%"
   >
           <Button 
+          sx={{
+            textTransform:'uppercase',
+            cursor:'pointer'
+          }}
           css={css`
           background-color:green;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -211,25 +211,25 @@ const Edit = () => {
          display="flex"
          cursor=" pointer"
          fontWeight=" 700"
-         padding=" 7px 20px"
-         border="none"
-         margin=" 0px 20px"
-         color=" #fff"
-           type="submit">
+         p="7px 20px" m=" 0px 20px"
+         color="#fff"
+        type="submit"
+           >
             Update
           </Button>
           <Button
+          sx={{
+            textTransform:'uppercase',
+            cursor:'pointer'
+          }}
           css={css`
           background-color:red;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
           border-radius: 50px;
           `}
          display="flex"
-         cursor=" pointer"
          fontWeight=" 700"
-         padding=" 7px 20px"
-         border="none"
-         margin=" 0px 20px"
+         p=" 7px 20px" m=" 0px 20px"
          color=" #fff"
            onClick={() => history.push("/")}>cancel</Button>
           </Box>

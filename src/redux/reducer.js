@@ -29,6 +29,9 @@ const userReducer = (state = initialState, action) => {
         loading: false,
       };
     case types.GET_USER_FAIL:
+    case types.DELETE_USER_FAIL:
+    case types.ADD_USER_FAIL:
+    case types.EDIT_USER_FAIL:
       return {
         ...state,
         error: action.payload,

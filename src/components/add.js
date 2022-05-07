@@ -80,7 +80,7 @@ const Add = () => {
       >Add User</Heading>
         <Box 
   css={css`
-  height: 500px;
+  
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0px 40px rgba(0, 0, 0, 0);
 	border-radius: 0px 100px 0px 100px;
 	width: 50%;
@@ -90,8 +90,7 @@ const Add = () => {
 		padding: 2px;
 	}
 `}
-margin= '30px 25%'
-padding= '20px'
+m= '30px 25%' p= '20px' height= "500px"
   as="form" onSubmit={handleSubmit}>
         <Box 
   display="flex"
@@ -101,7 +100,7 @@ padding= '20px'
 	>
           <Label 
           color="black" 
-          margin="10px" htmlFor="firstName">firstName</Label>
+          m="10px" htmlFor="firstName">firstName</Label>
           <Input
            sx={{
             borderRadius:'50px'
@@ -109,11 +108,9 @@ padding= '20px'
           height="35px"
           color="black"
           display="block"
-          borderRadius="50px"
           pl="20px"
             type="text"
             name="firstName"
-            value={firstName}
             onChange={handleInputChange}
           />
           </Box>
@@ -125,17 +122,17 @@ padding= '20px'
   >
           <Label 
           color="black" 
-          margin="10px" htmlFor="lastName">lastName</Label>
+          m="10px" htmlFor="lastName">lastName</Label>
           <Input
            sx={{
             borderRadius:'50px'
           }}
-          height="35px" color="black"
-          display="block" borderRadius="50px"
-          paddingLeft="20px"
+          height="35px" 
+          color="black"
+          display="block" 
+          pl="20px"
             type="text"
             name="lastName"
-            value={lastName}
             onChange={handleInputChange}
           />
           </Box>
@@ -144,20 +141,19 @@ padding= '20px'
 	flexDirection="column"
 	width="50%"
 	justifyContent="center"
-	margin="10px 25%">
+	m="10px 25%">
           <Label 
           color="black" 
-          margin="10px" htmlFor="Age">Age</Label>
+          m="10px" htmlFor="Age">Age</Label>
           <Input
            sx={{
             borderRadius:'50px'
           }}
           height="35px" color="black"
-          display="block" borderRadius="50px"
+          display="block"
           pl="20px"
             type="number"
             name="Age"
-            value={Age}
             onChange={handleInputChange}
           />
           </Box>
@@ -166,20 +162,20 @@ padding= '20px'
 	flexDirection="column"
 	width="50%"
 	justifyContent="center"
-	margin="10px 25%">
+	m="10px 25%">
           <Label 
           color="black" 
-          margin="10px" htmlFor="Height">Height</Label>
+          m="10px" htmlFor="Height">Height</Label>
           <Input
            sx={{
             borderRadius:'50px'
           }}
           height="35px" color="black"
-          display="block" borderRadius="50px"
-          paddingLeft="20px"
+          display="block" 
+          pl="20px"
             type="number"
             name="Height"
-            value={Height}
+            
             onChange={handleInputChange}
           />
           </Box>
@@ -188,11 +184,11 @@ padding= '20px'
           flexDirection="column"
           width="50%"
           justifyContent="center"
-          margin="0px 25%"
+          m="0px 25%"
           >
             <Label 
             color="black" 
-            margin="10px" 
+            m="10px" 
             htmlFor="Gender">Select Gender</Label>
           <Select
           sx={{
@@ -201,7 +197,7 @@ padding= '20px'
           width="100px" height="32px"
           textAlign="center" 
           id="Gender"
-          name="Gender" value={Gender} onChange={handleInputChange}>
+          name="Gender"  onChange={handleInputChange}>
             <option hidden>select</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -221,7 +217,6 @@ padding= '20px'
        `}
         m="10px 20px  50px 60%" p="1px 40px" bg="blueviolet"
        fontWeight="700" fontSize="30px"
-       border="none"
           type="submit">Add</Button>
         </Box>
         </>
