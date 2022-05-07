@@ -5,12 +5,13 @@ import { Box,Link } from "rebass";
 const Header = () => {
   return (
     <Box 
-	bg="black"
-	fontSize="20px"
+	fontSize={20}
+  py={10} px={60}
+  bg="black"
 	display="flex"
 	justifyContent="space-between"
 	alignItems="center"
-	padding="10px 60px">
+>
       <Link href="/" 
       css={css`
       text-decoration:none
@@ -24,7 +25,7 @@ const Header = () => {
       css={css`
       text-decoration:none
       `}
-        mr="100px"
+        mr={150}
         color="white"
         justifyContent="space-between"
         textDecoration="none"

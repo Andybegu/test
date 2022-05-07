@@ -58,15 +58,15 @@ const Home = () => {
       <Box 
       display= "flex"
       flexWrap="wrap"
-      height=" 50%"
-      m="10px 5%" p="0px 20px"
+      height={50}
+      my={10} mx={50} px={20}
        >
             {Object.keys(data).map((id, index) => {
                 
               return (
               
                 <Card key={id}
-                w="50%" p="70px" m="20px 10px"
+                w={50} p={70} my={20} mx={10}
                 fontFamily="arial, sans-serif"
                css={css`
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0px 40px rgba(0, 0, 0, 0);
@@ -77,7 +77,7 @@ const Home = () => {
     `}
 	
      >
-                <Text p={2} m={0} >Name: {data[id].firstName}</Text>
+                <Text p={2}>Name: {data[id].firstName}</Text>
                 <Text p={2}>Salary: {data[id].lastName}</Text>
                 <Text p={2}>AGE: {data[id].Age}</Text>
                 <Text p={2}>Height:{data[id].Height}</Text>
@@ -94,11 +94,10 @@ const Home = () => {
                     box-shadow=0 0 10px rgba(0, 0, 0, 0.3);
                      `}
                      color="black" bg="green"
-                     border-radius="40px"
                      fontSize="16px"
-                     p=" 7px 15px" m="10px"
+                     py={2} px={15} m={10}
                      justifyContent=" space-between"
-                     fontWeight="700"
+                     fontWeight={700}
                      >Edit</Button>
                     </Link>
                      <Button
@@ -111,10 +110,11 @@ const Home = () => {
                    box-shadow= 0 0 10px rgba(0, 0, 0, 0.3);
                     `}
                     color="black" bg="red"
-                    fontSize="16px"
-                    p=" 7px 10px" m="5px"
-                    justifyContent=" space-between"
-                    fontWeight="700"  onClick={() => onDelete(id)}>
+                     fontSize="16px"
+                     py={2} px={15} m={10}
+                     justifyContent=" space-between"
+                     fontWeight={700}
+                      onClick={() => onDelete(id)}>
                        DELETE
                      </Button>
                      

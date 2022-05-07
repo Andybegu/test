@@ -68,11 +68,9 @@ const Edit = () => {
 	fontSize="40px"
 	
       >update User</Heading>
-        <Box 
+       <Box 
   css={css`
-  height: 500px;
-	margin: 30px 25%;
-	padding: 20px;
+  
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0px 40px rgba(0, 0, 0, 0);
 	border-radius: 0px 100px 0px 100px;
 	width: 50%;
@@ -82,121 +80,127 @@ const Edit = () => {
 		padding: 2px;
 	}
 `}
-  as="form" onSubmit={handleSubmit}
-  >
+my= {30} mx={400} p= {20} height= {500}
+  as="form" onSubmit={handleSubmit}>
         <Box 
   display="flex"
 	flexDirection="column"
   justifyContent="center"
-	w="50%" m="10px 25%"
+	w={50} my={1} mx={170}
 	>
           <Label 
           color="black" 
-          m="10px" htmlFor="firstName">firstName</Label>
+          m={10} 
+          htmlFor="firstName">firstName</Label>
           <Input
            sx={{
             borderRadius:'50px'
           }}
-          height="35px"
+          height={35}
+          pl={20}
           color="black"
-          display="block"      
+          display="block"
             type="text"
             name="firstName"
-            value={firstName}
             onChange={handleInputChange}
           />
           </Box>
           <Box  
-  display="flex"
-	flexDirection="column"
-  justifyContent="center"
-	w="50%" m="10px 25%"
+   display="flex"
+   flexDirection="column"
+   justifyContent="center"
+   w={50} my={1} mx={170}
   >
           <Label 
           color="black" 
-          m="10px" htmlFor="lastName">lastName</Label>
+          m={10} 
+          htmlFor="lastName">lastName</Label>
           <Input
            sx={{
             borderRadius:'50px'
           }}
-          height="35px" color="black"
-          display="block"
-          pL="20px"
+          height={35}
+          pl={20}
+          color="black"
+          display="block" 
             type="text"
             name="lastName"
-            value={lastName}
             onChange={handleInputChange}
           />
           </Box>
           <Box  
-  display="flex"
-	flexDirection="column"
-	width="50%"
-	justifyContent="center"
-	m="10px 25%">
+   display="flex"
+   flexDirection="column"
+   justifyContent="center"
+   w={50} my={1} mx={170}
+	>
           <Label 
           color="black" 
-          m="10px" htmlFor="Age">Age</Label>
+          m={10} 
+          htmlFor="Age">Age</Label>
           <Input
            sx={{
             borderRadius:'50px'
           }}
-          height="35px" color="black"
+          height={35}
+          pl={20}
+          color="black"
           display="block"
-          pl="20px"
             type="number"
             name="Age"
-            value={Age}
             onChange={handleInputChange}
           />
           </Box>
           <Box  
-  display="flex"
-	flexDirection="column"
-	width="50%"
-	justifyContent="center"
-	m="10px 25%">
+   display="flex"
+   flexDirection="column"
+   justifyContent="center"
+   w={50} my={1} mx={170}
+	>
           <Label 
           color="black" 
-          margin="10px" htmlFor="Height">Height</Label>
+          m={10}
+           htmlFor="Height">Height</Label>
           <Input
            sx={{
             borderRadius:'50px'
           }}
-          height="35px" color="black"
-          display="block"
-          pL="20px"
+          height={35} 
+          pl={20}
+          color="black"
+          display="block" 
             type="number"
             name="Height"
-            value={Height}
+            
             onChange={handleInputChange}
           />
           </Box>
           <Box
-          display="flex"
-          flexDirection="column"
-          width="50%"
-          justifyContent="center"
-          m="0px 25%"
+           display="flex"
+           flexDirection="column"
+           justifyContent="center"
+           w={50} my={1} mx={170}
           >
             <Label 
             color="black" 
-            m="10px" 
+            m={10}
             htmlFor="Gender">Select Gender</Label>
           <Select
           sx={{
             borderRadius:'50px'
           }}
-          width="100px" height="32px"
+          width={100}
+          height={32}
           textAlign="center" 
           id="Gender"
-          name="Gender" onChange={handleInputChange}>
+          name="Gender"  onChange={handleInputChange}>
+            <option hidden>select</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </Select>
           </Box>
           <Box 
-  display="flex" p="10px" m="10px 20%"
+  display="flex" p={10} my={10} mx={200}
   >
           <Button 
           sx={{
@@ -207,11 +211,14 @@ const Edit = () => {
           background-color:green;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
           border-radius: 50px;
+          &:hover{
+            background-color: black;
+          }
           `}
          display="flex"
          cursor=" pointer"
-         fontWeight=" 700"
-         p="7px 20px" m=" 0px 20px"
+         fontWeight={700}
+         pt={2} px={18} mx={20}
          color="#fff"
         type="submit"
            >
@@ -226,10 +233,13 @@ const Edit = () => {
           background-color:red;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
           border-radius: 50px;
+          &:hover{
+            background-color: black;
+          }
           `}
          display="flex"
-         fontWeight=" 700"
-         p=" 7px 20px" m=" 0px 20px"
+         fontWeight={700}
+         pt={2} px={18} mx={20}
          color=" #fff"
            onClick={() => history.push("/")}>cancel</Button>
           </Box>
