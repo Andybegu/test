@@ -215,14 +215,20 @@ my= {30} mx={400} p= {20} height= {500}
             cursor:'pointer'
           }}
          css={css`
-         border-radius: 20px;
+         font-size: 30px;
+         margin: 20px 20px 20px 60%;
+         background-color: blueviolet;
+         cursor: pointer;
+         font-weight: 700;
+         padding: 1px 40px;
          box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-         &:hover{
-          background-color: black;
-        }
+         border-radius: 20px;
+         border: none;
+       
+         &:hover {
+           background-color: black;
+         }
        `}
-        mt={10} mr={20}  mb={50} ml={450} p="1px 40px" bg="blueviolet"
-       fontWeight="700" fontSize="30px"
           type="submit">Add</Button>
         </Box>
         </>

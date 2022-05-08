@@ -90,7 +90,7 @@ my= {30} mx={400} p= {20} height= {500}
 	>
           <Label 
           color="black" 
-          m={10} 
+          m={15} 
           htmlFor="firstName">firstName</Label>
           <Input
            sx={{
@@ -102,6 +102,7 @@ my= {30} mx={400} p= {20} height= {500}
           display="block"
             type="text"
             name="firstName"
+            value={firstName}
             onChange={handleInputChange}
           />
           </Box>
@@ -125,6 +126,7 @@ my= {30} mx={400} p= {20} height= {500}
           display="block" 
             type="text"
             name="lastName"
+            value={lastName}
             onChange={handleInputChange}
           />
           </Box>
@@ -148,6 +150,7 @@ my= {30} mx={400} p= {20} height= {500}
           display="block"
             type="number"
             name="Age"
+            value={Age}
             onChange={handleInputChange}
           />
           </Box>
@@ -171,7 +174,7 @@ my= {30} mx={400} p= {20} height= {500}
           display="block" 
             type="number"
             name="Height"
-            
+            value={Height}
             onChange={handleInputChange}
           />
           </Box>
@@ -193,14 +196,14 @@ my= {30} mx={400} p= {20} height= {500}
           height={32}
           textAlign="center" 
           id="Gender"
-          name="Gender"  onChange={handleInputChange}>
+          name="Gender" value={Gender} onChange={handleInputChange}>
             <option hidden>select</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </Select>
           </Box>
           <Box 
-  display="flex" p={10} my={10} mx={200}
+  display="flex" marginLeft="280px"
   >
           <Button 
           sx={{
@@ -218,7 +221,8 @@ my= {30} mx={400} p= {20} height= {500}
          display="flex"
          cursor=" pointer"
          fontWeight={700}
-         pt={2} px={18} mx={20}
+        margin="20px"
+        padding="10px"
          color="#fff"
         type="submit"
            >
@@ -239,7 +243,7 @@ my= {30} mx={400} p= {20} height= {500}
           `}
          display="flex"
          fontWeight={700}
-         pt={2} px={18} mx={20}
+         margin="20px"
          color=" #fff"
            onClick={() => history.push("/")}>cancel</Button>
           </Box>

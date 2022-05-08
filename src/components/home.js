@@ -9,6 +9,7 @@ import {css,keyframes} from "@emotion/react"
 const Home = () => {
   const { users: data } = useSelector((state) => state.data);
   const loading = useSelector((state) => state.data.loading);
+  const error = useSelector((state) => state.data.error);
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUserStart());
@@ -124,6 +125,10 @@ const Home = () => {
               
             })}
             </Box>
+            {data.length === 0 && !loading&& (
+				<Text>No Employees Found!</Text>
+			)}
+            {error && !loading && <Text>{error}</Text>}
     </>
   );
 };
