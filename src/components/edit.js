@@ -203,7 +203,7 @@ my= {30} mx={400} p= {20} height= {500}
           </Select>
           </Box>
           <Box 
-  display="flex" marginLeft="280px"
+  display="flex" marginLeft="280px" 
   >
           <Button 
           sx={{
@@ -218,8 +218,6 @@ my= {30} mx={400} p= {20} height= {500}
             background-color: black;
           }
           `}
-         display="flex"
-         cursor=" pointer"
          fontWeight={700}
         margin="20px"
         padding="10px"
